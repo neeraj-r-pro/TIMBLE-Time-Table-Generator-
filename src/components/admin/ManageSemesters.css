@@ -1,0 +1,206 @@
+.manage-semesters {
+    padding: 0;
+}
+
+.manage-semesters .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.manage-semesters .filters-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.manage-semesters .search-box {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.manage-semesters .search-box .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    color: #94a3b8;
+}
+
+.manage-semesters .search-box .form-input {
+    padding-left: 2.25rem;
+}
+
+.manage-semesters .form-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.manage-semesters .semester-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.manage-semesters .semester-form .form-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.manage-semesters .loading-state {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.manage-semesters .empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #64748b;
+}
+
+.manage-semesters .empty-state .empty-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    color: #94a3b8;
+}
+
+.manage-semesters .semesters-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.semester-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.semester-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.semester-card.expanded {
+    border-color: #3b82f6;
+}
+
+.semester-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.semester-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.semester-info .semester-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #3b82f6;
+}
+
+.semester-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.batch-count-badge {
+    background: #eff6ff;
+    color: #3b82f6;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.semester-actions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.linked-batches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.batch-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: #f1f5f9;
+    color: #334155;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.batch-chip-code {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+.chip-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    padding: 0;
+    margin-left: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.chip-remove:hover {
+    color: #ef4444;
+}
+
+.batch-linking-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.batch-linking-section h4 {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.no-batches-hint {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.available-batches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.batch-add-btn {
+    font-size: 0.8rem !important;
+}

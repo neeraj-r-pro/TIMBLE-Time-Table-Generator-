@@ -1,0 +1,421 @@
+.student-timetable-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  animation: scaleIn 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+.student-timetable-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15), 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.student-timetable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+}
+
+.student-timetable-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.student-timetable-title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.student-title-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #6366f1;
+}
+
+.student-export-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 0.75rem;
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.student-export-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.student-export-button:hover {
+  background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.student-export-button:hover::before {
+  left: 100%;
+}
+
+.student-export-button:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.student-export-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.student-timetable-filters {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.student-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 9.375rem;
+}
+
+.student-filter-group label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.student-filter-select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background: white;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.student-filter-select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+
+.student-timetable-content {
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.student-timetable-grid {
+  display: table;
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 1px;
+  background: #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.student-timetable-header-row {
+  display: table-row;
+}
+
+.student-time-header {
+  display: table-cell;
+  background: #6366f1;
+  color: white;
+  padding: 1rem 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.875rem;
+  width: 120px;
+  white-space: nowrap;
+}
+
+.student-day-header {
+  display: table-cell;
+  background: #6366f1;
+  color: white;
+  padding: 1rem 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.875rem;
+  min-width: 180px;
+  white-space: nowrap;
+}
+
+.student-timetable-row {
+  display: table-row;
+}
+
+.student-time-cell {
+  display: table-cell;
+  background: #f9fafb;
+  padding: 1.5rem 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.student-schedule-cell {
+  display: table-cell;
+  background: white;
+  padding: 0.5rem;
+  min-width: 180px;
+  vertical-align: top;
+}
+
+/* Consecutive teaching slots: continuation column (no inner card) */
+.student-schedule-cell.slot-merged-follow {
+  padding: 0;
+  min-width: 0;
+  width: 0.25rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: none;
+}
+
+.student-schedule-cell.slot-merged-start .student-schedule-item {
+  min-height: 5.5rem;
+}
+
+.student-schedule-item {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-height: 5rem;
+}
+
+.student-schedule-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.student-schedule-item:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.2);
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.student-schedule-item:hover::before {
+  opacity: 1;
+}
+
+.student-subject {
+  font-weight: 600;
+  color: #0369a1;
+  font-size: 0.875rem;
+  line-height: 1.25;
+}
+
+.student-teacher {
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.student-room {
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.student-type {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.student-type.lecture {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.student-type.practical {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.student-type.tutorial {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.student-empty-slot {
+  color: #d1d5db;
+  text-align: center;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 5rem;
+}
+
+.student-timetable-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.student-placeholder-icon {
+  width: 4rem;
+  height: 4rem;
+  color: #d1d5db;
+  margin-bottom: 1.25rem;
+}
+
+.student-timetable-placeholder h3 {
+  margin: 0 0 0.625rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.student-timetable-placeholder p {
+  margin: 0;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .student-timetable-header {
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: stretch;
+    padding: 1.25rem;
+  }
+
+  .student-timetable-title h1 {
+    font-size: 1.25rem;
+  }
+
+  .student-timetable-filters {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .student-filter-group {
+    min-width: 100%;
+  }
+
+  .student-search-group {
+    min-width: 100%;
+  }
+
+  .student-timetable-content {
+    padding: 1.25rem;
+  }
+
+  .student-timetable-grid {
+    min-width: 37.5rem;
+  }
+
+  .student-time-cell,
+  .student-schedule-cell {
+    padding: 0.5rem 0.375rem;
+  }
+
+  .student-schedule-item {
+    padding: 0.375rem;
+  }
+
+  .student-subject {
+    font-size: 0.8125rem;
+  }
+
+  .student-teacher,
+  .student-room {
+    font-size: 0.6875rem;
+  }
+
+  .student-type {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-timetable-header {
+    padding: 1rem;
+  }
+
+  .student-timetable-filters {
+    padding: 1rem;
+  }
+
+  .student-timetable-content {
+    padding: 1rem;
+  }
+
+  .student-timetable-grid {
+    min-width: 31.25rem;
+  }
+
+  .student-time-cell,
+  .student-schedule-cell {
+    padding: 0.375rem 0.25rem;
+  }
+
+  .student-schedule-item {
+    padding: 0.25rem;
+  }
+}

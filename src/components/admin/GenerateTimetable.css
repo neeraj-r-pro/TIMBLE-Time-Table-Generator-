@@ -1,0 +1,452 @@
+/* Generate Timetable Workflow Styles */
+
+/* Timetable code badge - top right, visible throughout workflow */
+.generate-timetable-workflow {
+  position: relative;
+}
+
+.timetable-code-badge {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 100;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+  min-width: 180px;
+}
+
+.code-badge-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+.code-badge-value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.code-text {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.15em;
+}
+
+.code-copy-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.35rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.code-badge-hint {
+  font-size: 0.7rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.85;
+}
+
+/* Common styles that work with both old and new workflow */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.page-subtitle {
+  margin: 0.5rem 0 0 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.content-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.btn-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* Form Styles */
+.form-input {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+/* Legacy styles for old timetable display */
+.generate-timetable {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.generate-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group-buttons {
+  display: flex;
+  align-items: flex-end;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.timetable-result {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #059669;
+  background-color: #ecfdf5;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.success-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.day-schedule {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.day-header {
+  background-color: #eef2ff;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.day-header h3 {
+  color: #111827;
+  margin: 0;
+}
+
+.slots-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.slot-item {
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.slot-item:last-child {
+  border-bottom: none;
+}
+
+.slot-item:not(.lunch-break):hover {
+  background-color: #f9fafb;
+}
+
+.lunch-break {
+  background-color: #f9fafb;
+}
+
+.lunch-break-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.lunch-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.slot-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.slot-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.time-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #9ca3af;
+}
+
+.slot-time span {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.subject-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: #6366f1;
+  color: white;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.slot-faculty {
+  font-size: 0.875rem;
+  color: #111827;
+}
+
+.slot-room {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.summary-box {
+  background-color: #eff6ff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.summary-title {
+  font-size: 0.875rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+.summary-item {
+  text-align: center;
+}
+
+.summary-label {
+  color: #3b82f6;
+}
+
+.summary-value {
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+/* Export Dropdown */
+.export-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.export-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  min-width: 160px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.export-options button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: none;
+  background: transparent;
+  color: #374151;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.export-options button:hover {
+  background-color: #f3f4f6;
+  color: #6366f1;
+}
+
+/* Print Styles */
+@media print {
+
+  .step-indicator,
+  .step-actions,
+  .generation-actions,
+  .timetable-code-badge,
+  .AdminSidebar,
+  .DashboardSidebar,
+  .AdminDashboard-header,
+  .preview-controls {
+    display: none !important;
+  }
+
+  .generate-timetable-workflow {
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .timetable-preview {
+    display: block !important;
+  }
+
+  .day-schedule {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  .period-slot {
+    border: 1px solid #f3f4f6 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .generate-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .slot-content {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

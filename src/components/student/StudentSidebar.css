@@ -1,0 +1,163 @@
+.student-sidebar {
+  width: 16rem;
+  min-width: 16rem;
+  max-width: 16rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(229, 231, 235, 0.5);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  animation: slideIn 0.5s ease-out;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.student-sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.student-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.student-logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #6366f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-logo-calendar {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+}
+
+.student-logo-text {
+  color: #111827;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.student-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.student-sidebar-section {
+  padding: 1rem;
+}
+
+.student-section-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-bottom: 0.75rem;
+  padding: 0 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.student-menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 0.25rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #4b5563;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.student-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.student-menu-item:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+}
+
+.student-menu-item:hover::before {
+  opacity: 1;
+}
+
+.student-menu-item.active {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  color: #6366f1;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+  transform: translateX(4px);
+}
+
+.student-menu-item.active::before {
+  opacity: 1;
+}
+
+.student-menu-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.student-sidebar-footer {
+  margin-top: auto;
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.student-logout-menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+  transition: all 0.2s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #dc2626;
+  font-size: 0.9375rem;
+  text-align: left;
+}
+
+.student-logout-menu-item:hover {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.student-logout-menu-item .student-menu-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
