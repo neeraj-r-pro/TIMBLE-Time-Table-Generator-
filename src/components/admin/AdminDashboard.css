@@ -232,29 +232,29 @@
   .app-container {
     flex-direction: column;
   }
-  
+
   .sidebar {
     width: 100%;
     height: auto;
     min-height: auto;
     max-width: none;
   }
-  
+
   .main-content {
     width: 100%;
     min-width: 0;
   }
-  
+
   .search-container {
     max-width: none;
   }
-  
+
   .header-content {
     flex-direction: column;
     gap: 1rem;
     align-items: stretch;
   }
-  
+
   .header-actions {
     justify-content: space-between;
   }
@@ -264,9 +264,9 @@
   .page-content {
     padding: 1rem;
   }
-  
+
   .app-header {
     padding: 0.75rem 1rem;
   }
-  
+
 }

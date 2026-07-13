@@ -336,19 +336,19 @@
   .charts-row {
     grid-template-columns: 1fr;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
+
   .workload-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .workload-section {
     padding: 1.5rem;
   }
-  
+
   .suggestion-item {
     flex-direction: column;
     align-items: flex-start;
